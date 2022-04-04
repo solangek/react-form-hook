@@ -1,5 +1,3 @@
-import logo from './logo.svg';
-import './App.css';
 import {useState} from "react";
 import Counter from "./components/Counter";
 import FetchHook from "./components/FetchHook";
@@ -13,8 +11,9 @@ function App() {
   const [step, setStep] = useState(1);
 
   const incrementCounter = () => {
-    //setCount(count + step);
-    // or with function
+      // setCount(count + step);
+      // the setCount function can receive a function that returns the new value
+      // so we can write instead:
       setCount(prevCount => prevCount + step);
   }
 

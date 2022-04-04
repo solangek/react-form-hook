@@ -17,7 +17,7 @@ const InputValidationHook = props => {
 
     // we define an effect trigggered upon modification of the input state
     useEffect(() => {
-        if (input.length < 5 || /\d/.test(input)) {
+        if (input.length < 5 || /\d/.test(input)) { // if the input is less than 5 characters or contains a number
             setIsValid(false);
         } else {
             setIsValid(true);
@@ -28,9 +28,9 @@ const InputValidationHook = props => {
         <>
             <form>
                 <label htmlFor="input">Write something (more than 5 non numerical characters is a valid input)</label><br />
-                <input type="text" id="input" autoComplete="off" onChange={inputHandler} style={{ height: '1.5rem', width: '20rem', marginTop: '1rem' }} />
+                <input type="text" id="input" autoComplete="off" onChange={inputHandler} className={"form-control"} />
             </form>
-            <p><span style={isValid ? { backgroundColor: 'lightgreen', padding: '.5rem' } : { backgroundColor: 'lightpink', padding: '.5rem' }}>{isValid ? 'Valid input' : 'Input not valid'}</span></p>
+            <p  className={isValid ? "alert alert-info" : "alert alert-danger"}> {isValid ? 'Valid input' : 'Input not valid'}</p>
         </>
     );
 };

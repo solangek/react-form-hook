@@ -18,7 +18,7 @@ export default function FetchHook(props) {
             setData(result.data);
         };
         fetchData();
-    }, []);
+    }, []); // array of dependencies: if the array is empty, the effect will only run once
 
     // note: we must generate keys for each item in the array
     // otherwise React will complain. Keys should be unique
