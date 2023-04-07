@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const ALGOLIA_SEARCH_URL = 'http://hn.algolia.com/api/v1/search?query=';
 const ALGOLIA_SEARCH_DEFAULT = ALGOLIA_SEARCH_URL + 'useState';
+const FETCH_ERROR_MSG = 'Something went wrong ...';
 /**
  * this function returns a function that will be used as a callback
  * to set the URL to fetch, and various states to track the fetching
@@ -53,10 +54,7 @@ export default function FormFetchWithHook() {
         <>
             <form
                 onSubmit={event => {
-                    doFetch(
-                        ALGOLIA_SEARCH_URL + encodeURIComponent(query),
-                        {},
-                    );
+                    doFetch(ALGOLIA_SEARCH_URL + encodeURIComponent(query), {});
                     event.preventDefault();
                 }}
             >
@@ -64,7 +62,7 @@ export default function FormFetchWithHook() {
                 <button className="btn btn-primary" type="submit">Search</button>
             </form>
 
-            {isError && <div>Something went wrong ...</div>}
+            {isError && <div className="alert alert-danger"> {FETCH_ERROR_MSG} </div>}
 
             {isLoading ? (
                 <div className="alert alert-warning">Loading (this could be animated gif instead) ...</div>
