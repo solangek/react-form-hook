@@ -13,7 +13,7 @@ export default function FetchHook(props) {
         // so we define a function and call it
         const fetchData = async () => { // await can be used only inside async functions
             const result = await axios(
-                'https://hn.algolia.com/api/v1/search?query=redux'
+                'https://hn.algolia.com/api/v1/search?query=useState'
             );
             setData(result.data);
         };

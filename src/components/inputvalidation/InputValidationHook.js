@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Form5 from "./Form5";
 
 // this is the flow of execution:
 // 1. user types some input text
@@ -17,19 +18,14 @@ const InputValidationHook = props => {
 
     // we define an effect trigggered upon modification of the input state
     useEffect(() => {
-        if (input.length < 5 || /\d/.test(input)) { // if the input is less than 5 characters or contains a number
-            setIsValid(false);
-        } else {
-            setIsValid(true);
-        }
+        setIsValid((input.length >= 5 && ! /\d/.test(input)));
+
+        //(input.length < 5 || /\d/.test(input)) ? setIsValid(false) : setIsValid(true);
     }, [input]); // <--- note the dependency array
 
     return (
         <>
-            <form>
-                <label htmlFor="input">Write something (more than 5 non numerical characters is a valid input)</label><br />
-                <input type="text" id="input" autoComplete="off" onChange={inputHandler} className={"form-control"} />
-            </form>
+            <Form5 inputHandler={inputHandler} />
             <p  className={isValid ? "alert alert-info" : "alert alert-danger"}> {isValid ? 'Valid input' : 'Input not valid'}</p>
         </>
     );

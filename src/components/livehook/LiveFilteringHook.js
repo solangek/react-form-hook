@@ -28,14 +28,14 @@ const LiveFilteringHook = props => {
         });
     }, [inputType]);
 
-    // Prepare array to be rendered
+    /** prepare the list of items to be rendered
+     * Note that we use the key property to identify each item in the array as required by React
+     */
     const listItems = filteredArray.map((item) =>
-        <>
-            <tr>
+            <tr key={item.key}>
                 <td>{item.type}</td>
                 <td> {item.value}</td>
             </tr >
-        </>
     );
 
     return (
@@ -48,11 +48,15 @@ const LiveFilteringHook = props => {
             </form>
             <br />
             <table className={'table'}>
-                <tr>
-                    <th>Type</th>
-                    <th>Value</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
                 {listItems}
+                </tbody>
             </table>
         </>
     );

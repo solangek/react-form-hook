@@ -1,9 +1,9 @@
 import {useState} from "react";
 import Counter from "./components/Counter";
-import FetchHook from "./components/FetchHook";
-import FormFetchWithHook from "./components/FormFetchWithHook";
-import InputValidationHook from "./components/InputValidationHook";
-import LiveFilteringHook from "./components/LiveFilteringHook";
+import FetchHook from "./components/fetch/FetchHook";
+import FormFetchWithHook from "./components/fetchwithform/FormFetchWithHook";
+import InputValidationHook from "./components/inputvalidation/InputValidationHook";
+import LiveFilteringHook from "./components/livehook/LiveFilteringHook";
 
 
 function App() {
