@@ -8,6 +8,7 @@ export default function FetchHook(props) {
     // axios is a promise based library that makes http requests
 
     useEffect( () => {
+        // Why do we need to define a function and call it?
         // using async directly in the useEffect function isn't allowed.
         // an effect hook should return nothing or a clean up function, it cannot return a promise
         // so we define a function and call it

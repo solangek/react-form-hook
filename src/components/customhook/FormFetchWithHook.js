@@ -4,10 +4,13 @@ import axios from 'axios';
 const ALGOLIA_SEARCH_URL = 'http://hn.algolia.com/api/v1/search?query=';
 const ALGOLIA_SEARCH_DEFAULT = ALGOLIA_SEARCH_URL + 'useState';
 const FETCH_ERROR_MSG = 'Something went wrong ...';
-/**
- * this function returns a function that will be used as a callback
- * to set the URL to fetch, and various states to track the fetching
- * @param initialUrl
+
+/** this is the definition of a React custom hook that will fetch data from some API.
+ *
+ * it returns a function that will be used as a callback
+ * to set the URL to fetch using axios, and various states to track the fetching
+ * @param initialUrl since we're using axios you may pass a string
+ * or an object such as {url: 'https://hn.algolia.com/api/v1/search?query=useState', method: 'get'}
  * @param initialData
  * @returns {[{isLoading: boolean, isError: boolean, data: unknown}, ((value: unknown) => void)]}
  */
@@ -26,7 +29,7 @@ const useDataApi = (initialUrl, initialData) => {
             setIsError(false); // reset error state
             setIsLoading(true); // set loading state to true to show loading indicator for example
             try {
-                const result = await axios(url);
+                const result = await axios(url); // not that you can pass full object to axios including method, url, data
                 setData(result.data); // set data state
             } catch (error) {
                 setIsError(true); // an error occurred, set error state to true
@@ -45,10 +48,7 @@ const useDataApi = (initialUrl, initialData) => {
 export default function FormFetchWithHook() {
     const [query, setQuery] = useState(''); // query string to be searched is a state
 
-    const [{ data, isLoading, isError }, doFetch] = useDataApi(
-        ALGOLIA_SEARCH_DEFAULT,
-        { hits: [] },
-    );
+    const [{ data, isLoading, isError }, doFetch] = useDataApi(ALGOLIA_SEARCH_DEFAULT, { hits: [] });
 
     return (
         <>

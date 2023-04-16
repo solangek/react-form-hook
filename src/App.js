@@ -1,7 +1,7 @@
 import {useState} from "react";
 import Counter from "./components/Counter";
 import FetchHook from "./components/fetch/FetchHook";
-import FormFetchWithHook from "./components/fetchwithform/FormFetchWithHook";
+import FormFetchWithHook from "./components/customhook/FormFetchWithHook";
 import InputValidationHook from "./components/inputvalidation/InputValidationHook";
 import LiveFilteringHook from "./components/livehook/LiveFilteringHook";
 
@@ -40,7 +40,7 @@ function App() {
 
         <hr/>
 
-        <h1>Form fetch with hook</h1>
+        <h1>Form fetch with custom hook</h1>
         <FormFetchWithHook/>
         <hr/>
     </div>
