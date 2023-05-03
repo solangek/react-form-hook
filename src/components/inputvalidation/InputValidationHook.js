@@ -26,7 +26,9 @@ const InputValidationHook = props => {
     return (
         <>
             <Form5 inputHandler={inputHandler} />
-            <p  className={isValid ? "alert alert-info" : "alert alert-danger"}> {isValid ? 'Valid input' : 'Input not valid'}</p>
+            <p  className={isValid ? "alert alert-info" : "alert alert-danger"}>
+                {isValid ? 'Valid input' : 'Input not valid'}
+            </p>
         </>
     );
 };

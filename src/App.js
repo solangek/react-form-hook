@@ -4,6 +4,8 @@ import FetchHook from "./components/fetch/FetchHook";
 import FormFetchWithHook from "./components/customhook/FormFetchWithHook";
 import InputValidationHook from "./components/inputvalidation/InputValidationHook";
 import LiveFilteringHook from "./components/livehook/LiveFilteringHook";
+import CounterCustomHook from "./components/customhook/CounterCustomHook";
+import CounterNotWorking from "./components/customhook/CounterNotWorking";
 
 
 function App() {
@@ -43,6 +45,14 @@ function App() {
         <h1>Form fetch with custom hook</h1>
         <FormFetchWithHook/>
         <hr/>
+
+        <h1>SetInterval not working</h1>
+        <CounterNotWorking/>
+
+        <h1>SetInterval working with custom hook</h1>
+        <CounterCustomHook/>
+        <p>Read this <a href={"https://overreacted.io/making-setinterval-declarative-with-react-hooks/"}>great article</a> explaining this code.</p>
+
     </div>
   );
 }
