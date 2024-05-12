@@ -9,6 +9,7 @@ export default function CounterCustomHook() {
     const [delay, setDelay] = useState(1000);
     const [isRunning, setIsRunning] = useState(true);
 
+    // this is the custom hook.
     useInterval(() => {
         // Your custom logic here
         setCount(count + 1);
@@ -31,7 +32,7 @@ export default function CounterCustomHook() {
         </>
     );
 }
-// the custm hook
+// the custom hook - How do we know it is a hook? Because it starts with "use"
 function useInterval(callback, delay) {
     const savedCallback = useRef();
     console.log("useInterval");
