@@ -12,7 +12,7 @@ const array = [
 ];
 
 const LiveFilteringHook = props => {
-    const [inputValue, setInputValue] = useState('');
+    //const [inputValue, setInputValue] = useState('');
     const [inputType, setInputType] = useState('');
     const [filteredArray, setFilteredArray] = useState(array);
 

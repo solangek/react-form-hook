@@ -50,13 +50,13 @@ export default function FormFetchWithHook() {
 
     // important remark: the initial value "{ hits: [] }" of the state must MATCH exactly the type of the data returned by the API
     // so if you are using this code for another API, you must change the initial value of the state to match the data returned by your API
-    const [{ data, isLoading, isError }, doFetch] = useDataApi(ALGOLIA_SEARCH_DEFAULT, { hits: [] });
+    const [{ data, isLoading, isError }, setUrlForFetch] = useDataApi(ALGOLIA_SEARCH_DEFAULT, { hits: [] });
 
     return (
         <>
             <form
                 onSubmit={event => {
-                    doFetch(ALGOLIA_SEARCH_URL + encodeURIComponent(query));
+                    setUrlForFetch(ALGOLIA_SEARCH_URL + encodeURIComponent(query));
                     event.preventDefault();
                 }}
             >
