@@ -12,7 +12,6 @@ const array = [
 ];
 
 const LiveFilteringHook = props => {
-    //const [inputValue, setInputValue] = useState('');
     const [inputType, setInputType] = useState('');
     const [filteredArray, setFilteredArray] = useState(array);
 
@@ -48,7 +47,8 @@ const LiveFilteringHook = props => {
             <form style={{ maxWidth: '23rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
                     <label htmlFor="input-type">Filter by <b>type</b></label><br />
-                    <input type="text" id="input-type" autoComplete="off" onChange={inputTypeHandler} className={'form-control'} />
+                    <input type="text" id="input-type" autoComplete="off"
+                           onChange={inputTypeHandler} className={'form-control'} value={inputType} />
                 </div>
             </form>
             <br />
