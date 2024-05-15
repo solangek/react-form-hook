@@ -14,6 +14,10 @@ const InputValidationHook = props => {
 
     const inputHandler = e => {
         setInput(e.target.value);
+        // note that the useEffect below is not necessary since we could simply apply
+        // the validation logic directly in the inputHandler function
+        // setIsValid((e.target.value.length >= 5 && ! /\d/.test(e.target.value)));
+
     };
 
     // we define an effect trigggered upon modification of the input state

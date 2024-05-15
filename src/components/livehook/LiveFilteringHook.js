@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 
 const array = [
     { key: '1', type: 'planet', value: 'Tatooine' },
@@ -18,13 +18,18 @@ const LiveFilteringHook = props => {
 
     const inputTypeHandler = e => {
         setInputType(e.target.value);
+        // note that the useEffect below is not necessary since we could simply apply
+        // the filter directly in the inputTypeHandler function
+        // setFilteredArray(() => {
+        //     const newArray = array.filter(item => item.type.includes(e.target.value));
+        //     return newArray;
+        // });
     };
 
     useEffect(() => {
         // update the STATE filtered array with a function that filters the array based on the input value and type
         setFilteredArray(() => {
-            const newArray = array.filter(item => item.type.includes(inputType));
-            return newArray;
+            return array.filter(item => item.type.includes(inputType));
         });
     }, [inputType]);
 

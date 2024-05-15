@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+// useEffect most of the time should not be used directly in the component
+// unless we want to fetch data from an API or something similar
+// the good way to use useEffect is to define a custom hook where we
+// define some generic logic that can be reused in different components
 export default function FetchHook(props) {
     const [data, setData] = useState({ hits: [] }); // an array of urls
 
