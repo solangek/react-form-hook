@@ -9,6 +9,7 @@ const FETCH_ERROR_MSG = 'Something went wrong ...';
  *
  * it returns a function that will be used as a callback
  * to set the URL to fetch using axios, and various states to track the fetching
+ * note that it does not deal with the common error of component unmounting while fetching.
  * @param initialUrl since we're using axios you may pass a string
  * or an object such as {url: 'https://hn.algolia.com/api/v1/search?query=useState', method: 'get'}
  * @param initialData
