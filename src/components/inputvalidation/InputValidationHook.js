@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Form5 from "./Form5";
+import ValidationResult from "./ValidationResult";
 
 // this is the flow of execution:
 // 1. user types some input text
@@ -30,9 +31,7 @@ const InputValidationHook = props => {
     return (
         <>
             <Form5 inputHandler={inputHandler} />
-            <p  className={isValid ? "alert alert-info" : "alert alert-danger"}>
-                {isValid ? 'Valid input' : 'Input not valid'}
-            </p>
+            <ValidationResult isValid={isValid}  />
         </>
     );
 };
