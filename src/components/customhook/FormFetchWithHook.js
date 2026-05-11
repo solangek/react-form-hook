@@ -96,3 +96,20 @@ export default function FormFetchWithHook() {
         </>
     );
 }
+
+/* some insights:
+1. Fetches on mount even if url is empty
+The effect runs immediately with initialUrl. May or may not be desired.
+2. Race condition still possible
+If you type fast and submit multiple searches, responses can arrive out of order:
+Search "react" → request A
+Search "vue" → request B
+Response B arrives
+Response A arrives (shows "react" results even though you searched "vue")
+The AbortController helps but doesn't eliminate this entirely.
+
+If you want to build for production - not some exercise - you must
+learn React Query (now TanStack Query) or SWR that are popular
+React libraries used to manage "server state" by handling data fetching,
+caching, and synchronization
+ */
