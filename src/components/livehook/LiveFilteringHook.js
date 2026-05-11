@@ -11,6 +11,13 @@ const array = [
     { key: '8', type: 'person', value: 'Leia Organa' },
 ];
 
+// THIS IS AN EXAMPLE OF UNNECESSARY USE OF useEffect.
+// We could simply apply the filter directly in the inputTypeHandler function
+// and avoid the useEffect altogether.
+// Filtering an array is synchronous computation - no effect needed:
+// User types → setInputType() → render
+// useEffect runs → setFilteredArray() → render again
+
 const LiveFilteringHook = props => {
     const [inputType, setInputType] = useState('');
     const [filteredArray, setFilteredArray] = useState(array);
